@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MaterialDesign</string>
+    <string name="menu_1">add</string>
+    <string name="menu_2">delete</string>
+    <string name="page_title">this is app bar top</string>
+    <string name="favorite">좋아요</string>
+    <string name="search">찾기</string>
+    <string name="more">더보기</string>
 </resources>
