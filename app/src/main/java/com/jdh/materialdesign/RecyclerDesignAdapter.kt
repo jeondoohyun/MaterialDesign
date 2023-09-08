@@ -29,16 +29,21 @@ class RecyclerDesignAdapter(val itemList: ArrayList<RecyclerItem>, val context: 
         return itemList.count()
     }
 
-    // 클릭 이벤트
-    interface OnItemClickListener {
+    /** 클릭 이벤트(
+     * 인터페이스 생성
+     * 인터페이스 넣을 변수
+     * 변수에 클릭이벤트 setter */
+    interface AAAAClickListener {
         fun onClick(v: View, position: Int)
     }
 
-    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
-        this.itemClickListener = onItemClickListener
+    private lateinit var itemClickListener : AAAAClickListener
+
+    fun setItemClickListener(ClickListener: AAAAClickListener) {
+        this.itemClickListener = ClickListener
     }
 
-    private lateinit var itemClickListener : OnItemClickListener
+
 
     class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var TextView_text: TextView

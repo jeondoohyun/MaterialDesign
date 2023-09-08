@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/favorite"
+        android:enabled="true"
+        android:icon="@drawable/favorite_24"
+        android:title="favorite"/>
+    <item
+        android:id="@+id/music"
+        android:enabled="true"
+        android:icon="@drawable/music_24"
+        android:title="music"/>
+    <item
+        android:id="@+id/place"
+        android:enabled="true"
+        android:icon="@drawable/place_24"
+        android:title="place"/>
+    <item
+        android:id="@+id/news"
+        android:enabled="true"
+        android:icon="@drawable/newspaper_24"
+        android:title="news"/>
+</menu>
