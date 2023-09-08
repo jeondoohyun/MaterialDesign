@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!---->
+        <!--app:layout_scrollFlags="scroll|enterAlways 추가로 움직이는 appbar 적용-->
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/CollapsingToolbarLayout"
             android:fitsSystemWindows="true"
@@ -34,11 +34,8 @@
                 style="@style/Widget.MaterialComponents.Toolbar.Primary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:title="  "
                 app:menu="@menu/app_bars_top_item"
-                app:navigationIcon="@drawable/menu_24"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
-                app:layout_collapseMode="pin">
+                app:navigationIcon="@drawable/menu_24">
 
             </com.google.android.material.appbar.MaterialToolbar>
 

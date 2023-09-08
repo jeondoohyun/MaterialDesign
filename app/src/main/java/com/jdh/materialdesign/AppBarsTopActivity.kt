@@ -16,10 +16,7 @@ class AppBarsTopActivity : AppCompatActivity() {
         setContentView(R.layout.activity_app_bars_top)
 
         // status상태바 까지 appbar가 자리를 침범한다. status높이 만큼 padding을 줘야함
-        val window = window
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        MainActivity().setStatusBarTransparent(this)
 
         var topAppBar = findViewById<MaterialToolbar>(R.id.topAppBar)
 
