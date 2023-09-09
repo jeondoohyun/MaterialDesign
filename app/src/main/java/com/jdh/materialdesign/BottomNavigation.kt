@@ -41,6 +41,15 @@ class BottomNavigation : AppCompatActivity() {
         transaction.replace(R.id.frameLayout, fragmentFavorite)
         transaction.commit()
 
+        // 뱃지
+        var badge_favo = binding.bottomNavigation.getOrCreateBadge(R.id.favorite)
+        badge_favo.isVisible = true
+        badge_favo.number = 10
+
+        var badge_music = binding.bottomNavigation.getOrCreateBadge(R.id.music)
+        badge_music.isVisible = true
+        badge_music.number = 3
+
 
         binding.bottomNavigation.setOnItemSelectedListener(object : NavigationBarView.OnItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -50,12 +59,20 @@ class BottomNavigation : AppCompatActivity() {
                         val transaction = supportFragmentManager.beginTransaction()
                         transaction.replace(R.id.frameLayout, fragmentFavorite)
                         transaction.commit()
+                        if (badge_favo != null) {
+                            badge_favo.isVisible = false
+                            badge_favo.clearNumber()
+                        }
                         true
                     }
                     R.id.music -> {
                         val transaction = supportFragmentManager.beginTransaction()
                         transaction.replace(R.id.frameLayout, fragmentMusic)
                         transaction.commit()
+                        if (badge_music != null) {
+                            badge_music.isVisible = false
+                            badge_music.clearNumber()
+                        }
                         true
                     }
                     R.id.place -> {

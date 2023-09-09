@@ -4,7 +4,7 @@
         android:id="@+id/favorite"
         android:enabled="true"
         android:icon="@drawable/favorite_24"
-        android:title="favorite"/>
+        android:title="favorite" />
     <item
         android:id="@+id/music"
         android:enabled="true"
