@@ -10,6 +10,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 import com.google.android.material.navigation.NavigationBarView.OnItemReselectedListener
 import com.jdh.materialdesign.databinding.ActivityBottomNavigationBinding
+import com.jdh.materialdesign.fragment.FragmentFavorite
+import com.jdh.materialdesign.fragment.FragmentMusic
+import com.jdh.materialdesign.fragment.FragmentNews
+import com.jdh.materialdesign.fragment.FragmentPlace
 
 class BottomNavigation : AppCompatActivity() {
     // 전역 변수로 바인딩 객체 선언
@@ -17,10 +21,14 @@ class BottomNavigation : AppCompatActivity() {
     // 매번 null 체크를 할 필요 없이 편의성을 위해 바인딩 변수 재 선언
     private val binding get() = mBinding!!
 
+    private val fragmentFavorite = FragmentFavorite()
+    private val fragmentMusic = FragmentMusic()
+    private val fragmentPlace = FragmentPlace()
+    private val fragmentNews = FragmentNews()
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_bottom_navigation)
         mBinding = ActivityBottomNavigationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -29,26 +37,37 @@ class BottomNavigation : AppCompatActivity() {
 
         // todo : fragment로 네비게이션 바텀에 따른 각 화면 추가 하기, 아이콘에 숫자뱃지 추가해보기
 
-//        var bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frameLayout, fragmentFavorite)
+        transaction.commit()
 
 
         binding.bottomNavigation.setOnItemSelectedListener(object : NavigationBarView.OnItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
                 when(item.itemId){
                     R.id.favorite -> {
-                        Toast.makeText(this@BottomNavigation, "favo",Toast.LENGTH_SHORT).show()
+                        val transaction = supportFragmentManager.beginTransaction()
+                        transaction.replace(R.id.frameLayout, fragmentFavorite)
+                        transaction.commit()
                         true
                     }
                     R.id.music -> {
-                        Toast.makeText(this@BottomNavigation, "music",Toast.LENGTH_SHORT).show()
+                        val transaction = supportFragmentManager.beginTransaction()
+                        transaction.replace(R.id.frameLayout, fragmentMusic)
+                        transaction.commit()
                         true
                     }
                     R.id.place -> {
-                        Toast.makeText(this@BottomNavigation, "place",Toast.LENGTH_SHORT).show()
+                        val transaction = supportFragmentManager.beginTransaction()
+                        transaction.replace(R.id.frameLayout, fragmentPlace)
+                        transaction.commit()
                         true
                     }
                     R.id.news -> {
-                        Toast.makeText(this@BottomNavigation, "news",Toast.LENGTH_SHORT).show()
+                        val transaction = supportFragmentManager.beginTransaction()
+                        transaction.replace(R.id.frameLayout, fragmentNews)
+                        transaction.commit()
                         true
                     }
                     else -> false
@@ -83,6 +102,17 @@ class BottomNavigation : AppCompatActivity() {
 
 
 
+    }
+
+    fun openFragmentOnFrameLayoutB(int: Int){
+        val transaction = supportFragmentManager.beginTransaction()
+        when(int){
+            1 -> transaction.replace(R.id.frameLayout, fragmentFavorite)
+            2 -> transaction.replace(R.id.frameLayout, fragmentMusic)
+            3 -> transaction.replace(R.id.frameLayout, fragmentPlace)
+            4 -> transaction.replace(R.id.frameLayout, fragmentNews)
+        }
+        transaction.commit()
     }
 
 
